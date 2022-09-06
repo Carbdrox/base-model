@@ -1,10 +1,11 @@
 {
   "name": "@carbdrox/base-model",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A TypeScript base model",
   "amdName": "BaseModel",
   "main": "dist/BaseModel.js",
   "types": "dist/BaseModel.d.ts",
+  "typings": "dist/BaseModel.d.ts",
   "author": "Christian Förster",
   "keywords": [
     "TS",
