@@ -1,0 +1,36 @@
+{
+  "name": "@carbdrox/base-model",
+  "version": "1.0.0",
+  "description": "A TypeScript base model",
+  "amdName": "BaseModel",
+  "main": "dist/BaseModel.js",
+  "types": "dist/BaseModel.d.ts",
+  "author": "Christian Förster",
+  "keywords": [
+    "TS",
+    "TypeScript",
+    "MVC",
+    "base-model",
+    "BaseModel",
+    "Model"
+  ],
+  "scripts": {
+    "build": "npm run cp-ts-definitions && tsc",
+    "cp-ts-definitions": "copyfiles -u 1 \"src/**/*.d.ts\" dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carbdrox/base-model.git"
+  },
+  "files": [
+    "src"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Carbdrox/base-model/issues"
+  },
+  "homepage": "https://github.com/Carbdrox/base-model#readme",
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  }
+}
