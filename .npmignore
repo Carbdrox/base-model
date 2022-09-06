@@ -1,4 +1,10 @@
 .idea
 .DS_Store
 
-node_modules
+node_modules/
+src/
+
+tsconfig.json
+
+*.log
+*.tgz

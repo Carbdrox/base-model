@@ -1,6 +1,6 @@
 {
   "name": "@carbdrox/base-model",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A TypeScript base model",
   "amdName": "BaseModel",
   "main": "dist/BaseModel.js",
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/Carbdrox/base-model.git"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "license": "MIT",
   "bugs": {
