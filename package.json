@@ -1,6 +1,6 @@
 {
   "name": "@carbdrox/base-model",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A TypeScript base model",
   "amdName": "BaseModel",
   "main": "dist/BaseModel.js",

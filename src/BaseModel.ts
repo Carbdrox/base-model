@@ -127,9 +127,16 @@ export class BaseModel {
         return allFields;
     }
 
-    private isDirtyDeep(values: object, original: object): boolean {
+    private isDirtyDeep(values: Object | any[], original: Object | any[]): boolean {
         type ObjectKey = keyof typeof values;
-        const keys: string[] = Object.keys(values);
+        let keys: (string | number)[] = [];
+
+        if(Array.isArray(values)) {
+            keys = Object.keys(values.keys());
+        }
+        else {
+            keys = Object.keys(values);
+        }
 
         for (let key of keys) {
             if (!original.hasOwnProperty(key)) {
@@ -144,7 +151,6 @@ export class BaseModel {
                 return false;
             }
         }
-
 
         return  false;
     }
