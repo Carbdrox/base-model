@@ -81,6 +81,12 @@ export class BaseModel {
                 continue;
             }
 
+            if(typeof this[<ObjectKey>key] === 'object' && !!this[<ObjectKey>key]
+                && typeof this.originalFields[key] === 'object' && !!this.originalFields[key]) {
+                //@ts-ignore @TODO: need to fix
+                return this.isDirtyDeep(this[<ObjectKey>key], this.originalFields[key]);
+            }
+
             if(this.originalFields[key] !== this[<ObjectKey>key]) {
                 return true;
             }
@@ -120,4 +126,27 @@ export class BaseModel {
 
         return allFields;
     }
+
+    private isDirtyDeep(values: object, original: object): boolean {
+        type ObjectKey = keyof typeof values;
+        const keys: string[] = Object.keys(values);
+
+        for (let key of keys) {
+            if (!original.hasOwnProperty(key)) {
+                continue;
+            }
+
+            if(typeof values[<ObjectKey>key] === 'object' && typeof original[<ObjectKey>key] === 'object') {
+                return this.isDirtyDeep(values[<ObjectKey>key], original[<ObjectKey>key]);
+            }
+
+            if (original[<ObjectKey>key] !== values[<ObjectKey>key]) {
+                return false;
+            }
+        }
+
+
+        return  false;
+    }
+
 }
