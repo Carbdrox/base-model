@@ -1,6 +1,10 @@
 # BaseModel
 A TypeScript base model
 
+<a href="https://www.npmjs.com/package/@carbdrox/base-model"><img src="https://img.shields.io/npm/dt/@carbdrox/base-model" alt="Total Downloads"></a>
+<a href="https://www.npmjs.com/package/@carbdrox/base-model"><img src="https://img.shields.io/npm/v/@carbdrox/base-model" alt="Latest Stable Version"></a>
+<a href="https://www.npmjs.com/package/@carbdrox/base-model"><img src="https://img.shields.io/npm/l/@carbdrox/base-model" alt="License"></a>
+
 ## Installation
 
 ### Using npm
@@ -19,10 +23,20 @@ export class User extends BaseModel {
     
     @Field()
     private name?: string;
+
+    constructor(data) {
+        super(data);
+        this.initialize(data);
+    }
 }
 ```
 
 ### Interface
+
+`protected initialize(data: KeyValue): void;`
+
+This method hydrates the class with the provided data.
+
 
 `protected apiFields: string[];`
 

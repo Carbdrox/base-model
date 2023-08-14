@@ -29,15 +29,9 @@ export class BaseModel {
     protected originalFields: KeyValue = {};
 
     constructor(data: KeyValue) {
-        const fields: string[] = this.getFields();
-        type ObjectKey = keyof typeof this;
-
-        Object.keys(data).forEach(key => {
-            if (this.hasSetter(key) || fields.includes(key)) {
-                this[<ObjectKey>key] = data[key];
-                this.originalFields[key] = data[key];
-            }
-        });
+        if (data.hasOwnProperty('id')) {
+            this.id = data.id;
+        }
     }
 
     get transformObjectForApi(): KeyValue {
@@ -97,6 +91,18 @@ export class BaseModel {
 
     public clone(): BaseModel {
         return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
+    }
+
+    protected initialize(data: KeyValue): void {
+        const fields: string[] = this.getFields();
+        type ObjectKey = keyof typeof this;
+
+        Object.keys(data).forEach(key => {
+            if (this.hasSetter(key) || fields.includes(key)) {
+                this[<ObjectKey>key] = data[key];
+                this.originalFields[key] = data[key];
+            }
+        });
     }
 
     private hasSetter(key: string): boolean {
