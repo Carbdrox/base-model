@@ -26,14 +26,14 @@ export class User extends BaseModel {
 
     constructor(data) {
         super(data);
-        this.initialize(data);
+        this.hydrate(data);
     }
 }
 ```
 
 ### Interface
 
-`protected initialize(data: KeyValue): void;`
+`protected hydrate(data: KeyValue): void;`
 
 This method hydrates the class with the provided data.
 

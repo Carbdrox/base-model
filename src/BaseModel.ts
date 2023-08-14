@@ -93,7 +93,7 @@ export class BaseModel {
         return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
     }
 
-    protected initialize(data: KeyValue): void {
+    protected hydrate(data: KeyValue): void {
         const fields: string[] = this.getFields();
         type ObjectKey = keyof typeof this;
 
